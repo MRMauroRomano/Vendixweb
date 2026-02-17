@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planes - Vendix</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+/* =========================
+   💎 PARTICULAS FONDO
+=========================*/
+#particles{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+
+/* =========================
+   🧠 PARALLAX
+=========================*/
+.parallax{
+  transition:transform .1s linear;
+}
+
+/* =========================
+   🎬 ANIMACIÓN APPLE
+=========================*/
+.smooth{
+  opacity:0;
+  transform:translateY(80px) scale(.98);
+  transition:all 1.2s cubic-bezier(.16,1,.3,1);
+}
+.smooth.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+/* =========================
+   🚀 CURSOR MODERNO
+=========================*/
+.cursor{
+  width:18px;
+  height:18px;
+  border:2px solid #10b981;
+  border-radius:50%;
+  position:fixed;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  transition:.15s ease;
+  z-index:9999;
+}
+.cursor.active{
+  width:40px;
+  height:40px;
+  background:rgba(16,185,129,.15);
+}
+
+/* =========================
+   💰 CARD ULTRA PREMIUM
+=========================*/
+.premium-card{
+  position:relative;
+  transition:.4s ease;
+  overflow:hidden;
+}
+.premium-card:hover{
+  transform:translateY(-15px) scale(1.03);
+  box-shadow:0 30px 60px -15px rgba(16,185,129,.35);
+}
+
+.premium-card::before{
+  content:"";
+  position:absolute;
+  top:-50%;
+  left:-50%;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle, rgba(255,255,255,.15), transparent 60%);
+  animation:rotateGlow 8s linear infinite;
+}
+
+@keyframes rotateGlow{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+</style>
+</head>
+
+
+
+<body class="bg-slate-950 text-white overflow-x-hidden">
+
+<!-- 💎 PARTICULAS -->
+<canvas id="particles"></canvas>
+
+<!-- NAVBAR -->
+   <header class="fixed top-0 left-0 w-full z-[100] bg-slate-950/40 backdrop-blur-md border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    
+    <div class="flex items-center gap-2 group cursor-pointer">
+      <div class="w-8 h-8 bg-gradient-to-br from-emerald-400 to-blue-600 rounded-lg group-hover:rotate-12 transition-transform duration-300"></div>
+      <span class="font-bold text-xl tracking-tighter text-white">VENDIX</span>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="index.html" class="text-gray-400 hover:text-white transition">Inicio</a>
+      <a href="planes.html" class="text-emerald-400 transition underline underline-offset-8 decoration-2">Planes</a>
+      <a href="#" class="text-gray-400 hover:text-white transition">Características</a>
+      <a href="#" class="text-gray-400 hover:text-white transition">Beneficios</a>
+      <a href="#" class="group relative bg-white text-black px-6 py-2.5 rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95">
+        <span class="relative z-10">Contactar</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-emerald-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </a>
+    </nav>
+
+    <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 z-[110] p-2">
+      <div id="line1" class="w-6 h-0.5 bg-white transition-all duration-300"></div>
+      <div id="line2" class="w-6 h-0.5 bg-white transition-all duration-300"></div>
+      <div id="line3" class="w-3 h-0.5 bg-emerald-400 ml-auto transition-all duration-300"></div>
+    </button>
+
+    <div id="mobile-menu" class="fixed top-0 right-0 h-screen w-[280px] bg-slate-900/95 backdrop-blur-2xl border-l border-white/10 shadow-2xl translate-x-full transition-transform duration-500 ease-out md:hidden z-[105] flex flex-col p-8 pt-24">
+      <div class="flex flex-col gap-6 text-lg font-medium">
+        <a href="index.html" class="text-gray-400 hover:text-emerald-400 border-b border-white/5 pb-2">Inicio</a>
+        <a href="planes.html" class="text-emerald-400 border-b border-white/5 pb-2">Planes</a>
+        <a href="#" class="text-gray-400 hover:text-emerald-400 border-b border-white/5 pb-2">Características</a>
+        <a href="quienes-somos.html" class="text-gray-400 hover:text-white transition">Quienes Somos</a>
+        <a href="#" class="mt-4 bg-gradient-to-r from-emerald-500 to-blue-600 text-white text-center py-4 rounded-2xl font-bold shadow-lg shadow-emerald-500/20">
+          Contactar Ventas
+        </a>
+      </div>
+      
+      <div class="mt-auto text-xs text-center text-gray-500 uppercase tracking-widest">
+        © 2026 Vendix Premium
+      </div>
+    </div>
+
+    <div id="menu-overlay" class="fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-500 md:hidden z-[101]"></div>
+  </div>
+</header>
+
+<section class="py-28 text-center relative z-10">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <h2 class="text-6xl font-extrabold mb-6 parallax smooth">
+      Nuestros <span class="text-emerald-400">Planes</span>
+    </h2>
+
+    <p class="text-xl text-gray-400 mb-10 smooth">
+      Escoge el plan perfecto para potenciar tu negocio al máximo.
+    </p>
+
+    <div class="mb-20 smooth">
+      <button class="group relative inline-flex items-center justify-center px-12 py-6 font-bold text-white transition-all duration-300 bg-emerald-500/10 border-2 border-emerald-400/50 rounded-full hover:bg-emerald-500 hover:text-black overflow-hidden shadow-[0_0_30px_rgba(16,185,129,0.2)] hover:shadow-[0_0_50px_rgba(16,185,129,0.5)]">
+        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-emerald-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+        
+        <span class="relative flex items-center gap-3 text-2xl uppercase tracking-tighter">
+          Mira los diferentes planes adaptados para tu negocio/empresa
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </span>
+      </button>
+    </div>
+
+    <div class="flex flex-col gap-10">
+      <div class="premium-card bg-white/5 border border-white/10 p-10 md:p-14 rounded-[40px] smooth flex flex-col md:flex-row items-center justify-between text-left gap-10">
+        <div class="flex-1">
+          <span class="text-emerald-400 font-bold uppercase tracking-widest text-sm">Ideal para empezar</span>
+          <h3 class="text-4xl font-bold mt-2 mb-4">Plan Básico - Control Escencial</h3>
+          <p class="text-gray-400 text-lg mb-6">La solución esencial para quienes dan sus primeros pasos en la digitalización de su comercio.</p>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-gray-300">
+            <li><span class="text-emerald-500 mr-2">✓</span> Sistema web (utilizable en celular y pc)</li>
+            <li><span class="text-emerald-500 mr-2">✓</span> Punto de Venta</li>
+            <li><span class="text-emerald-500 mr-2">✓</span> Gestión de inventario</li>
+            <li><span class="text-emerald-500 mr-2">✓</span> Control de Caja</li>
+            <li><span class="text-emerald-500 mr-2">✓</span> Soporte en horario indicado</li>
+            <li><span class="text-emerald-500 mr-2">✓</span> Reportes de ventas básicos (en PDF)</li>
+            <li><span class="text-emerald-500 mr-2">✓</span> Indicadores claves</li>
+            <li><span class="text-emerald-500 mr-2">✓</span> Sin reunión de consultoría</li>
+            <li><span class="text-emerald-500 mr-2">✓</span> Carga total de inventario personalizada según el tipo de comercio.</li>
+            <li><span class="text-emerald-500 mr-2">✓</span> Costo de Implementación</li>
+            <li><span class="text-emerald-500 mr-2">✓</span> App Móvil de gestión en tiempo real</li>
+            <li><span class="text-white mr-2">✓</span> Capacitación</li>
+          </ul>
+        </div>
+         <div class="text-center md:text-right min-w-[280px]">
+          <div class="text-5xl font-extrabold mb-8">$115.000<span class="text-lg text-gray-700 font-normal">/mes</span>
+            <br>
+             <p class="text-[8px] md:text-[9px] text-gray-400 text-center uppercase tracking-[0.2em] leading-tight opacity-80 select-none">
+              *Precio estimado según <br> evaluación comercial
+            </p>
+        </div>
+          
+          <a href="https://wa.me/5493573464991?text=Hola%20Vendix!%20Me%20interesa%20el%20Plan%20Basico- Control Escencial para mi negocio!" 
+             target="_blank" 
+             class="inline-block w-full text-center bg-emerald-500 hover:bg-emerald-600 text-black font-bold py-4 px-10 rounded-full transition-all cursor-pointer">
+             CONSULTAR
+          </a>
+        </div>
+      </div>
+
+      <div class="premium-card bg-gradient-to-br from-emerald-600/40 to-blue-600/40 border-2 border-emerald-400/50 p-10 md:p-14 rounded-[40px] smooth flex flex-col md:flex-row items-center justify-between text-left gap-10 relative">
+        <div class="flex-1">
+          <div class="inline-block bg-white text-emerald-900 text-xs font-black px-3 py-1 rounded-full mb-4">MÁS ELEGIDO</div>
+          <h3 class="text-4xl font-bold mb-4 text-white">Plan Profesional - Gestión Inteligente</h3>
+          <p class="text-gray-200 text-lg mb-6">Todo lo que un comercio grande o comercio en crecimiento necesita para un control total.</p>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-white">
+            <li><span class="text-white mr-2">✓</span> Productos e inventario ilimitados</li>
+            <li><span class="text-white mr-2">✓</span> Punto de Venta</li>
+            <li><span class="text-white mr-2">✓</span> Gestión de Stock e Inventario</li>
+            <li><span class="text-white mr-2">✓</span> Control de Caja</li>
+            <li><span class="text-white mr-2">✓</span> Gestión de Proveedores</li>
+            <li><span class="text-white mr-2">✓</span> Gestión de Cuentas Corrientes</li>
+            <li><span class="text-white mr-2">✓</span> Tikcet de Venta</li>
+            <li><span class="text-white mr-2">✓</span> App Móvil de gestión en tiempo real</li>
+            <li><span class="text-white mr-2">✓</span> Dashboard Personalizado</li>
+            <li><span class="text-white mr-2">✓</span> PDF Financiero con Gráficos (quincenal)</li>
+            <li><span class="text-white mr-2">✓</span> Resúmen Ejecutivo</li>
+            <li><span class="text-white mr-2">✓</span> Indicadores Claves</li>
+            <li><span class="text-white mr-2">✓</span> Reunión Mensual (1hs)</li>
+            <li><span class="text-white mr-2">✓</span> Soporte 24/7</li>
+            <li><span class="text-white mr-2">✓</span> Costo de Implementación</li>
+            <li><span class="text-white mr-2">✓</span> Capacitación</li>
+          </ul>
+        </div>
+        <div class="text-center md:text-right min-w-[280px]">
+          <div class="text-5xl font-extrabold mb-6 text-white">$230.000<span class="text-lg opacity-70 font-normal">/mes</span>
+             <p class="text-[8px] md:text-[9px] text-gray-400 text-center uppercase tracking-[0.2em] leading-tight opacity-80 select-none">
+              *Precio estimado según <br> evaluación comercial
+            </p>
+          </div>
+            <a href="https://wa.me/5493573464991?text=Hola%20Vendix!%20Me%20interesa%20el%20Plan%20Profesional- Gestión Inteligente para mi negocio!" 
+   target="_blank" 
+   class="inline-block w-full text-center bg-white text-emerald-900 hover:bg-gray-100 font-bold py-4 px-10 rounded-full transition-all cursor-pointer">
+   CONSULTAR
+</a>
+        </div>
+      </div>
+
+      <div class="premium-card bg-white/5 border border-white/10 p-10 md:p-14 rounded-[40px] smooth flex flex-col md:flex-row items-center justify-between text-left gap-10">
+        <div class="flex-1">
+          <span class="text-blue-400 font-bold uppercase tracking-widest text-sm">Escalabilidad total</span>
+          <h3 class="text-4xl font-bold mt-2 mb-4">Plan Premium - Gestión Financiera</h3>
+          <p class="text-gray-400 text-lg mb-6">Diseñado para cadenas de negocios o empresas con múltiples sucursales.</p>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-white-300">
+            <li><span class="text-emerald-500 mr-2">✓</span> Productos e inventario ilimitados</li>
+            <li><span class="text-emerald-500 mr-2">✓</span> Punto de Venta</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Gestión de Stock e Inventario</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Control de Caja</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Gestión de Proveedores</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Gestión de Cuentas Corrientes</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Página de Presupuestos</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Facturacíon de Ventas</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> API Integradas</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Tikcet de Venta</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> App Móvil de gestión en tiempo real</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Dashboard Personalizado</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Power Bi avanzado</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Resúmen Ejecutivo</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Proyección de flujo de caja</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Reunión Quincenal</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Simulaciones</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> KPI personalizados</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Soporte Prioritario 24/7</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Costo de Implementación</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Capacitación</li>
+            <li><span class="text-emerald-500   mr-2">✓</span> Página Web Privada con Análisis Financiero</li>
+          </ul>
+        </div>
+        <div class="text-center md:text-right min-w-[280px]">
+          <div class="text-5xl font-extrabold mb-6">$330.000<span class="text-lg text-gray-500 font-normal">/mes</span>
+             <p class="text-[8px] md:text-[9px] text-gray-400 text-center uppercase tracking-[0.2em] leading-tight opacity-80 select-none">
+              *Precio estimado según <br> evaluación comercial
+            </p>
+          </div>
+              <a href="https://wa.me/5493573464991?text=Hola%20Vendix!%20Me%20interesa%20el%20Plan%20Premium - Gestión Financiera para mi negocio!" 
+   target="_blank" 
+   class="inline-block w-full text-center border-2 border-white/20 hover:bg-white/10 text-white font-bold py-4 px-10 rounded-full transition-all cursor-pointer">
+   CONTACTAR VENTAS
+</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<footer class="relative bg-slate-950 pt-20 pb-10 overflow-hidden border-t border-white/5">
+  <div class="absolute top-0 left-1/4 w-64 h-64 bg-emerald-500/5 blur-[100px] rounded-full"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      
+      <div class="space-y-6">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-gradient-to-br from-emerald-400 to-blue-600 rounded-lg"></div>
+          <span class="font-bold text-2xl tracking-tighter text-white">VENDIX</span>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Potenciamos el comercio local con tecnología financiera de alto nivel. Control total, resultados reales.
+        </p>
+        <div class="flex gap-4">
+          <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-emerald-500/20 transition-colors border border-white/10">
+            <span class="text-xs">IG</span>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-emerald-500/20 transition-colors border border-white/10">
+            <span class="text-xs">FB</span>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-emerald-500/20 transition-colors border border-white/10">
+            <span class="text-xs">IN</span>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-6 uppercase text-xs tracking-widest">Navegación</h4>
+        <ul class="space-y-4 text-gray-400 text-sm">
+          <li><a href="index.html" class="hover:text-emerald-400 transition">Inicio</a></li>
+          <li><a href="planes.html" class="hover:text-emerald-400 transition">Planes y Precios</a></li>
+          <li><a href="quienes-somos.html" class="hover:text-emerald-400 transition">Quiénes Somos</a></li>
+          <li><a href="#" class="hover:text-emerald-400 transition">Características</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-6 uppercase text-xs tracking-widest">Ayuda</h4>
+        <ul class="space-y-4 text-gray-400 text-sm">
+          <li><a href="#" class="hover:text-emerald-400 transition">Preguntas Frecuentes</a></li>
+          <li><a href="https://wa.me/5493573414164" class="hover:text-emerald-400 transition">Soporte Técnico</a></li>
+          <li><a href="#" class="hover:text-emerald-400 transition">Términos y Condiciones</a></li>
+          <li><a href="#" class="hover:text-emerald-400 transition">Privacidad</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-6 uppercase text-xs tracking-widest">Contacto</h4>
+        <ul class="space-y-4 text-gray-400 text-sm">
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-400">📍</span>
+            <span>Luque, Córdoba, Argentina</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-400">📞</span>
+            <span>+54 9 3573 41-4164</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-400">✉️</span>
+            <span>info@vendix.com.ar</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-xs uppercase tracking-widest">
+      <p>&copy; 2026 VENDIX. Todos los derechos reservados.</p>
+      <p>Desarrollado con ❤️ en Córdoba</p>
+    </div>
+  </div>
+</footer>
+<script>
+
+/* 💎 PARTICULAS */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+class Particle{
+  constructor(){
+    this.x=Math.random()*canvas.width;
+    this.y=Math.random()*canvas.height;
+    this.size=Math.random()*2;
+    this.speedX=Math.random()*.4-.2;
+    this.speedY=Math.random()*.4-.2;
+  }
+  update(){
+    this.x+=this.speedX;
+    this.y+=this.speedY;
+  }
+  draw(){
+    ctx.fillStyle="rgba(16,185,129,0.4)";
+    ctx.beginPath();
+    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+    ctx.fill();
+  }
+}
+function init(){
+  for(let i=0;i<120;i++){
+    particles.push(new Particle());
+  }
+}
+init();
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    p.update();
+    p.draw();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+
+/* 🧠 PARALLAX */
+window.addEventListener("scroll",()=>{
+  document.querySelectorAll(".parallax").forEach(el=>{
+    el.style.transform=`translateY(${window.scrollY*0.3}px)`;
+  });
+});
+
+/* 🚀 CURSOR */
+const cursor=document.createElement("div");
+cursor.classList.add("cursor");
+document.body.appendChild(cursor);
+
+document.addEventListener("mousemove",e=>{
+  cursor.style.left=e.clientX+"px";
+  cursor.style.top=e.clientY+"px";
+});
+document.querySelectorAll("a,button").forEach(el=>{
+  el.addEventListener("mouseenter",()=>cursor.classList.add("active"));
+  el.addEventListener("mouseleave",()=>cursor.classList.remove("active"));
+});
+
+/* 🎬 SCROLL SMOOTH */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+},{threshold:.2});
+
+document.querySelectorAll(".smooth").forEach(el=>{
+  observer.observe(el);
+});
+
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const overlay = document.getElementById('menu-overlay');
+const line1 = document.getElementById('line1');
+const line2 = document.getElementById('line2');
+const line3 = document.getElementById('line3');
+
+function toggleMenu() {
+  const isOpen = mobileMenu.classList.contains('translate-x-0');
+  
+  if (!isOpen) {
+    // Abrir
+    mobileMenu.classList.remove('translate-x-full');
+    mobileMenu.classList.add('translate-x-0');
+    overlay.classList.remove('opacity-0', 'pointer-events-none');
+    overlay.classList.add('opacity-100', 'pointer-events-auto');
+    
+    // Animación X
+    line1.style.transform = 'rotate(45deg) translateY(10px)';
+    line2.style.opacity = '0';
+    line3.style.width = '24px';
+    line3.style.transform = 'rotate(-45deg) translateY(-10px)';
+  } else {
+    // Cerrar
+    mobileMenu.classList.remove('translate-x-0');
+    mobileMenu.classList.add('translate-x-full');
+    overlay.classList.add('opacity-0', 'pointer-events-none');
+    overlay.classList.remove('opacity-100', 'pointer-events-auto');
+    
+    // Volver a hamburguesa
+    line1.style.transform = 'none';
+    line2.style.opacity = '1';
+    line3.style.width = '12px';
+    line3.style.transform = 'none';
+  }
+}
+
+menuBtn.addEventListener('click', toggleMenu);
+overlay.addEventListener('click', toggleMenu);
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Configuración del número (sin espacios ni guiones)
+    const whatsappNumber = "5493573464991";
+
+    // 2. Seleccionamos todos los botones de consulta dentro de las premium-cards
+    const planButtons = document.querySelectorAll('premium-card a, premium-card button');
+
+    planButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        // Buscamos el título del plan dentro de la tarjeta donde está el botón
+        const card = button.closest('premium-card');
+        const planName = card.querySelector('h3').innerText;
+        
+        // Creamos el mensaje personalizado
+        const message = `Hola Vendix! 👋 Me interesa recibir más información sobre el *${planName}*. ¿Podrían asesorarme?`;
+        
+        // Codificamos el mensaje para que sea válido en una URL
+        const encodedMessage = encodeURIComponent(message);
+        
+        // Generamos el enlace final
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        
+        // Redirigimos al usuario a WhatsApp en una pestaña nueva
+        window.open(whatsappUrl, '_blank');
+      });
+    });
+  });
+
+
+</script>
+
+</body>
+</html>
