@@ -304,10 +304,14 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
       
       <div class="space-y-6">
-        <div class="flex items-center gap-2">
-          <div class="w-8 h-8 bg-gradient-to-br from-emerald-400 to-blue-600 rounded-lg"></div>
-          <span class="font-bold text-2xl tracking-tighter text-white">VENDIX</span>
-        </div>
+        <div class="flex items-center gap-2 group cursor-pointer">
+      <div class="w-8 h-8 bg-gradient-to-br from-emerald-400 to-blue-600 rounded-lg group-hover:rotate-12 transition-transform duration-300 flex items-center justify-center p-1.5">
+        <img src="./images/tienda-online.png" 
+             alt="Bolsa" 
+             class="w-full h-full object-contain filter brightness-0 invert"> 
+      </div>
+      <span class="font-bold text-xl tracking-tighter text-white">VENDIX</span>
+    </div>
         <p class="text-gray-400 text-sm leading-relaxed">
           Potenciamos el comercio local con tecnología financiera de alto nivel. Control total, resultados reales.
         </p>
@@ -334,15 +338,6 @@
         </ul>
       </div>
 
-      <div>
-        <h4 class="text-white font-bold mb-6 uppercase text-xs tracking-widest">Ayuda</h4>
-        <ul class="space-y-4 text-gray-400 text-sm">
-          <li><a href="#" class="hover:text-emerald-400 transition">Preguntas Frecuentes</a></li>
-          <li><a href="https://wa.me/5493573414164" class="hover:text-emerald-400 transition">Soporte Técnico</a></li>
-          <li><a href="#" class="hover:text-emerald-400 transition">Términos y Condiciones</a></li>
-          <li><a href="#" class="hover:text-emerald-400 transition">Privacidad</a></li>
-        </ul>
-      </div>
 
       <div>
         <h4 class="text-white font-bold mb-6 uppercase text-xs tracking-widest">Contacto</h4>
@@ -351,14 +346,21 @@
             <span class="text-emerald-400">📍</span>
             <span>Luque, Córdoba, Argentina</span>
           </li>
-          <li class="flex items-start gap-3">
-            <span class="text-emerald-400">📞</span>
-            <span>+54 9 3573 41-4164</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-emerald-400">✉️</span>
-            <span>info@vendix.com.ar</span>
-          </li>
+           <div class="flex items-start gap-3">
+    <span class="text-emerald-400 mt-1">📞</span>
+    <div class="flex flex-col">
+      <span class="text-white font-medium">+54 9 3573 41-4164</span>
+      <p class="text-gray-400 text-xs uppercase tracking-wider">Santiago (Análisis Financiero)</p>
+    </div>
+  </div>
+
+  <div class="flex items-start gap-3">
+    <span class="text-emerald-400 mt-1">📞</span>
+    <div class="flex flex-col">
+      <span class="text-white font-medium">+54 9 3573 464991</span>
+      <p class="text-gray-400 text-xs uppercase tracking-wider">Mauro (Sistema Vendix)</p>
+    </div>
+  </div>
         </ul>
       </div>
 
