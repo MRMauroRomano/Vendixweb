@@ -290,30 +290,35 @@ html {
       </div>
     </div>
 
-    <div class="relative bg-white/5 backdrop-blur-xl p-4 md:p-8 rounded-3xl border border-white/10 shadow-2xl">
-      <div class="bg-slate-900/90 rounded-2xl p-4 md:p-6 space-y-6">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="bg-emerald-500/10 border border-emerald-500/20 p-4 rounded-xl">
-            <div class="text-xs text-emerald-400 font-bold uppercase">Ventas Hoy</div>
-            <div class="text-2xl font-bold text-white">$45,230</div>
-          </div>
-          <div class="bg-blue-500/10 border border-blue-500/20 p-4 rounded-xl">
-            <div class="text-xs text-blue-400 font-bold uppercase">Productos</div>
-            <div class="text-2xl font-bold text-white">1,234</div>
-          </div>
-        </div>
-        <div class="space-y-2">
-          <div class="bg-slate-800 p-3 rounded-lg flex justify-between text-sm">
-            <span>Coca Cola 500ml</span>
-            <span class="text-emerald-400">Stock: 48</span>
-          </div>
-          <div class="bg-slate-800 p-3 rounded-lg flex justify-between text-sm">
-            <span>Pan Lactal</span>
-            <span class="text-red-400">Stock: 3</span>
-          </div>
+     <!-- Imagen Hero -->
+    <div class="flex flex-col gap-10">
+
+      <div class="relative bg-white/5 backdrop-blur-xl p-3 rounded-3xl border border-white/10 shadow-2xl group w-full">
+        <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+        
+        <div class="relative bg-slate-900/90 rounded-2xl overflow-hidden">
+            <img src="images/Captura de pantalla 2026-02-14 192844.png" 
+                 alt="Vendix Dashboard" 
+                 class="w-full h-auto object-contain rounded-2xl transition-transform duration-700 group-hover:scale-[1.02]"
+                 onerror="this.src='https://via.placeholder.com/1200x800/0f172a/ffffff?text=Captura+Dashboard+Vendix'">
         </div>
       </div>
+
+    <div class="relative bg-white/5 backdrop-blur-xl p-3 rounded-3xl border border-white/10 shadow-2xl group w-full">
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+        
+        <div class="relative bg-slate-900/90 rounded-2xl overflow-hidden">
+            <img src="images/Captura de pantalla 2026-02-17 042719.png" 
+                 alt="Vendix Ventas" 
+                 class="w-full h-auto object-contain rounded-2xl transition-transform duration-700 group-hover:scale-[1.02]"
+                 onerror="this.src='https://via.placeholder.com/1200x800/0f172a/ffffff?text=Captura+Ventas+Vendix'">
+        </div>
     </div>
+
+</div>
+      <!-- fin Imagen Hero -->
+
+
   </div>
 
   <div class="absolute bottom-0 left-0 w-full leading-none z-0">
@@ -567,48 +572,18 @@ html {
  
 
     <!-- LADO DERECHO - CARD PREMIUM -->
-    <div class="relative fade-up delay-2">
+    <div class="relative fade-up delay-2 w-full">
+  <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 blur-3xl opacity-40 rounded-3xl"></div>
 
-      <!-- Fondo decorativo glow -->
-      <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 blur-3xl opacity-40 rounded-3xl"></div>
-
-      <!-- Card -->
-      <div class="relative bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl shadow-2xl">
-
-        <div class="text-center mb-8">
-          <div class="w-14 h-14 mx-auto bg-gradient-to-br from-emerald-400 to-blue-500 flex items-center justify-center rounded-xl text-2xl mb-4">
-            📈
-          </div>
-          <h3 class="text-xl font-semibold">Resultados Comprobados</h3>
-        </div>
-
-        <!-- Stats Grid -->
-        <div class="grid grid-cols-2 gap-6 text-center">
-
-          <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-            <div class="text-3xl font-bold text-emerald-400">30%</div>
-            <div class="text-sm text-gray-400 mt-1">Ahorro de tiempo</div>
-          </div>
-
-          <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-            <div class="text-3xl font-bold text-blue-400">50%</div>
-            <div class="text-sm text-gray-400 mt-1">Menos pérdidas</div>
-          </div>
-
-          <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-            <div class="text-3xl font-bold text-emerald-400">25%</div>
-            <div class="text-sm text-gray-400 mt-1">Más ganancias</div>
-          </div>
-
-          <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-            <div class="text-3xl font-bold text-blue-400">100%</div>
-            <div class="text-sm text-gray-400 mt-1">Control total</div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
+  <div class="relative bg-white/5 backdrop-blur-xl border border-white/10 p-2 md:p-4 rounded-3xl shadow-2xl overflow-hidden group">
+    
+    <img src="images/home-business-employees-preparing-products-boxes-local-delivery.jpg" 
+         alt="Vendix Preview" 
+         class="w-full h-auto rounded-2xl object-contain transition-transform duration-500 group-hover:scale-[1.01]"
+         onerror="this.src='https://via.placeholder.com/800x600/0f172a/ffffff?text=Cargar+Imagen+Vendix'">
+         
+  </div>
+</div>
 
   </div>
 
@@ -637,7 +612,7 @@ html {
 
       <!-- Básico -->
       <div class="premium-card bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-3xl">
-        <h3 class="text-xl font-semibold">Básico</h3>
+        <h3 class="text-xl font-semibold">Plan Básico - Control Escencial</h3>
         <p class="text-gray-400 text-sm mb-4">Ideal para pequeños comercios</p>
         <div class="text-4xl font-bold mb-6">$115.000<span class="text-sm text-gray-400">/mes</span>
           <br>
@@ -650,12 +625,18 @@ html {
           <li>✓ Punto de Venta</li>
           <li>✓ Gestión de Inventario</li>
           <li>✓ Gestion de Caja</li>
-          <li>✓ Reportes de ventas básicos (en PDF)</li>
+          <li>✓ Análisis Financiero Básico</li>
           <li>✓ App móvil</li>
-          <li>✓ Costo de Implementación</li>
+          <li>✓ Resumen Ejecutivo Mensual</li>
+          <li>✓ Sin Reunión de Consultoría</li>
+          <li>✓ Soporte Estándar</li>
         </ul>
 
-        <a href="planes.html" class="block bg-white/10 hover:bg-white/20 py-3 rounded-full transition">
+         <p class="text-[6px] md:text-[7px] text-emerald-400 -translate-y-4 text-center uppercase tracking-[0.2em] leading-tight opacity-80 select-none">
+              Los costos de Implementación son apartes del  pago mensual.
+             </p>
+
+        <a href="planes.html" class="block bg-white/10 hover:bg-white/20 py-3 rounded-full transition ">
           Ver detalles
         </a>
       </div>
@@ -665,8 +646,8 @@ html {
         <div class="mb-2 text-sm bg-white/20 inline-block px-3 py-1 rounded-full">
           Más Popular
         </div>
-        <h3 class="text-xl font-semibold mt-3">Profesional</h3>
-        <p class="text-sm mb-4 opacity-80">Para kioscos en crecimiento</p>
+        <h3 class="text-xl font-semibold mt-3">Plan Profesional - Gestión Inteligente</h3>
+        <p class="text-sm mb-4 opacity-80">Para negocios en crecimiento</p>
         <div class="text-4xl font-bold mb-6">$230.000<span class="text-sm opacity-80">/mes</span>
           <br>
              <p class="text-[6px] md:text-[7px] text-black-400 text-center uppercase tracking-[0.2em] leading-tight opacity-80 select-none">
@@ -675,13 +656,19 @@ html {
         </div>
 
         <ul class="space-y-3 text-sm mb-8">
-          <li>✓ Punto de Venta</li>
-          <li>✓ Gestión de Inventario</li>
-          <li>✓ Gestion de Caja</li>
-          <li>✓ Reportes de ventas básicos (en PDF)</li>
+          <li>✓ Todo el Plan Básico</li>
+          <li>✓ Gestión de Proveedores</li>
+          <li>✓ Análisis Financiero Personalizado</li>
+          <li>✓ Resumen Ejecutivo Quincenal (1hs)</li>
           <li>✓ App móvil</li>
-          <li>✓ Costo de Implementación</li>
+          <li>✓ Consultoría: Revisión de Resultados (1hs)</li>
+           <li>✓ Soporte 24/7</li>
         </ul>
+
+        <p class="text-[6px] md:text-[7px] text-white-400 -translate-y-4 text-center uppercase tracking-[0.2em] leading-tight opacity-80 select-none">
+              Los costos de Implementación son apartes del  pago mensual.
+             </p>
+
 
         <a href="planes.html" class="block bg-white text-black font-semibold py-3 rounded-full hover:opacity-90 transition">
           Ver detalles
@@ -690,17 +677,30 @@ html {
 
       <!-- Empresa -->
       <div class="premium-card bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-3xl">
-        <h3 class="text-xl font-semibold">Empresa</h3>
-        <p class="text-gray-400 text-sm mb-4">Para múltiples sucursales</p>
-        <div class="text-4xl font-bold mb-6">$39.990<span class="text-sm text-gray-400">/mes</span></div>
+        <h3 class="text-xl font-semibold">Plan Premium - Gestión Financiera</h3>
+        <p class="text-gray-400 text-sm mb-4">Ideal para pymes y grandes negocios</p>
+        <div class="text-4xl font-bold mb-6">$385.000<span class="text-sm text-gray-400">/mes</span>
+          <br>
+             <p class="text-[6px] md:text-[7px] text-black-400 text-center uppercase tracking-[0.2em] leading-tight opacity-80 select-none">
+              *Precio estimado <br> según evaluación comercial
+             </p>
+        </div>
 
         <ul class="text-gray-400 space-y-3 text-sm mb-8">
           <li>✓ Todo del Pro</li>
-          <li>✓ Múltiples sucursales</li>
-          <li>✓ Usuarios ilimitados</li>
+          <li>✓ Página de Presupuestos</li>
+          <li>✓ Facturación en ARCA desde el Sistema</li>
+          <li>✓ Análisis Financiero Personalizado</li>
+          <li>✓ KPI Avanzados</li>
           <li>✓ API</li>
-          <li>✓ Soporte prioritario</li>
+          <li>✓ Consultoría: Revisión de Resultados (1hs)</li>
+          <li>✓ Soporte prioritario 24/7</li>
         </ul>
+
+          <p class="text-[6px] md:text-[7px] text-emerald-400 -translate-y-4 text-center uppercase tracking-[0.2em] leading-tight opacity-80 select-none">
+              Los costos de Implementación son apartes del  pago mensual.
+             </p>
+
 
         <a href="planes.html" class="block bg-white/10 hover:bg-white/20 py-3 rounded-full transition">
           Ver detalles
